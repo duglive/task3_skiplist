@@ -39,10 +39,10 @@ public:
 
     /// Just dumps the whole journal to the \a out stream.
     void dumpJournal(std::ostream& out);
-    
+
     void parseLogFromStream(std::istream& in);
-    
-    
+
+
     /// Reads the whole log from the file on \a fullpath.
     void parseLog(const std::string& fullpath);
 
