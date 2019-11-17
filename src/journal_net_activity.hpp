@@ -24,7 +24,7 @@ void JournalNetActivity<numLevels>::parseLog(const std::string& fullpath)
     std::ifstream fin(fullpath);    // opens the file
     if (!fin)
         throw std::logic_error("Couldn't open file " + fullpath);
-    
+
     parseLogFromStream(fin);
 }
 
@@ -80,5 +80,15 @@ void JournalNetActivity<numLevels>::outputSuspiciousActivities(
         const TimeStamp& timeTo,
         std::ostream& out) const
 {
-    // TODO: Implement this method!
+    typename NetActivityList::Node* from = _journal.findFirst(timeFrom);
+
+    from = from == nullptr ? _journal.getPreHead() : from;
+
+    for (from; from != _journal.getPreHead() && from -> key <= timeTo; from = from -> next)
+    {
+        if (from -> value.host == hostSuspicious)
+        {
+            std::cout << from -> key << " " << from -> value << std::endl;
+        }
+    }
 }
