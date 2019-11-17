@@ -26,9 +26,11 @@ OrderedList<Value, Key, Node>::OrderedList()
 
 //-----------------------------------------------------------------------------
 
+template <class Value, class Key, class Node>
+OrderedList<Value, Key, Node>::~OrderedList()
+{
 
-    // TODO: !!! Implement destructor correctly !!!
-
+}
 //-----------------------------------------------------------------------------
 
 
