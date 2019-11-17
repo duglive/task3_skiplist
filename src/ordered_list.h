@@ -56,19 +56,19 @@ struct NodeWithKeyAbstract
 
     /// Default constructor.
     NodeWithKeyAbstract()
-        : Base()
+            : Base()
     {}
 
     /// Init with a key.
     NodeWithKeyAbstract(const Key& key)
-        : Base()
-        , key(key)
+            : Base()
+            , key(key)
     { }
 
     /// Init with a key and a value.
     NodeWithKeyAbstract(const Key& key, const Value& val)
-        : Base(val)
-        , key(key)
+            : Base(val)
+            , key(key)
     { }
 
     //----<Fields>-----
@@ -88,13 +88,13 @@ struct NodeWithKey
     /// For convenience, we define an alias for the base datatype.
     typedef NodeWithKeyAbstract <Value, Key, NodeWithKey<Value,Key> > Base;
 
-	NodeWithKey()  {}
+    NodeWithKey()  {}
     NodeWithKey(const Key& key)
-        : Base(key)
+            : Base(key)
     { }
 
     NodeWithKey(const Key& key, const Value& val):
-        Base(key, val)
+            Base(key, val)
     { }
 };
 
@@ -109,15 +109,13 @@ template <class Value, class Key, class Node = NodeWithKey<Value,Key> >
 class OrderedList
 {
 public:
-	typedef NodeWithKey<Value,Key> TypeNode;
+    typedef NodeWithKey<Value,Key> TypeNode;
 
     /// Default constructor.
     OrderedList();
 
     /// Virtual destructor.
     virtual ~OrderedList();
-
-    // TODO: деструктор!
 
     /// Inserts a new node with the given (value == val) and (key == tkey).
     virtual void insert(const Value& val, const Key& tkey);

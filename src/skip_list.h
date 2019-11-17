@@ -69,7 +69,7 @@ public:
 
 public:
     /// Default constructor.
-	NodeSkipList();
+    NodeSkipList();
 
     /// Init with a key.
     NodeSkipList(const Key& tkey);
